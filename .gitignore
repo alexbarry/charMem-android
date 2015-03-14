@@ -87,3 +87,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+assets/chars-limited.txt
+assets/chars.txt
