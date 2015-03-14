@@ -1,3 +1,14 @@
+# Alex
+# I wrote this file myself, using information from the book:
+#	"Remembering Simplified Hanzi" by James Heisig
+# Here's more information: 
+# 	http://en.wikipedia.org/wiki/Remembering_the_Kanji_and_Remembering_the_Hanzi
+# I don't want to include it because I didn't write it very well (only 
+# intended using it for myself), and that would take away some 
+# incentive from other people to buy the book.
+# There's a free sample out there somewhere.
+chars-full.txt
+
 # Built application files
 *.apk
 *.ap_
