@@ -9,3 +9,15 @@ seven				七	pinyin: qī
 eight				八	pinyin: bā
 nine				九	pinyin: jiǔ
 ten					十	pinyin: shí
+
+# Lesson 2: Powers of ten
+hundred				百	pinyin: bǎi
+thousand			千	pinyin: qiān
+ten thousand		万	pinyin: wàn
+
+# Lesson 3
+you					你	pinyin: nǐ
+me					我	pinyin: wǒ
+good				好	pinyin: hǎo
+be					是	pinyin: shì
+thank				谢	pinyin: xiè
