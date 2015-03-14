@@ -8,6 +8,11 @@
 # incentive from other people to buy the book.
 # There's a free sample out there somewhere.
 chars-full.txt
+# In hindsight, it makes more sense to just ignore chars.txt,
+# then reference that in my code. So both will compile and 
+# run properly, but my local copy will have the full set of 
+# characters while the published one does not.
+chars.txt
 
 # Built application files
 *.apk
