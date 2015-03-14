@@ -21,3 +21,4 @@ me					我	pinyin: wǒ
 good				好	pinyin: hǎo
 be					是	pinyin: shì
 thank				谢	pinyin: xiè
+derp				¯\_(ツ)_/¯, this is an example of a character with a subtitle

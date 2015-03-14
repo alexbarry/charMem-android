@@ -7,7 +7,7 @@
     <string name="charInputHint">Character Name</string>
     <string name="charInputBtnEnter">Enter</string>
     <string name="defaultChars">聿五</string>
-    <string name="charInfo_sample">Character info goes here. If it is really big I hope it scrolls! I might have to change the orientation of the &amp;quot;scroll view&amp;quot;</string>
+    <string name="charInfo_sample">Character info goes here. If it is really big I hope it scrolls! I might have to change the orientation of the &quot;scroll view&quot;</string>
     <string name="section_selection_text">Select section(s) to practice:</string>
     <string name="sel_btn_update">Update</string>
     <string name="sel_selectAll">Select All</string>

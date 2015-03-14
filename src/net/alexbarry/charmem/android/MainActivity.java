@@ -77,8 +77,7 @@ public class MainActivity extends FragmentActivity {
 		AssetManager assetManager = getAssets();
 		InputStream inputStream;
 		try {
-			//inputStream = assetManager.open("chars.txt"); // TODO should use this
-			inputStream = assetManager.open("chars-full.txt"); // TODO should not use this
+			inputStream = assetManager.open("chars.txt"); 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +90,6 @@ public class MainActivity extends FragmentActivity {
 		try {
 			charEntries = CharEntryFileParser.parseFile( inputStream, enc );
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException();
 		}

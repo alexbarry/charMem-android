@@ -18,10 +18,8 @@ public class CharReviewElementWrapper {
 	private TextView
 				keywordText,
 				charText,
-				//pinyinEdit,
 				subtitleText,
 				charIdText;
-				//hintEdit;
 
 	public CharReviewElementWrapper(ViewGroup	parent, CharEntry charEntry) {
 		Context context = parent.getContext();
@@ -31,16 +29,13 @@ public class CharReviewElementWrapper {
 		
 		this.keywordText	= (TextView) this.view.findViewById(R.id.textKeyword);
 		this.charText 		= (TextView) this.view.findViewById(R.id.textChar);
-		//this.pinyinEdit		= (EditText) this.view.findViewById(R.id.);
 		this.subtitleText	= (TextView) this.view.findViewById(R.id.textSubtitle);
-		//this.hintEdit		= (TextView) this.view.findViewById(R.id.text);
 		this.charIdText		= (TextView) this.view.findViewById(R.id.textCharacterId);
 		
 		String test = charEntry.getKeyword();
 		
 		this.keywordText.setText(		charEntry.getKeyword()		);
 		this.charText.setText(			charEntry.getCharacter()	);
-		//this.pinyinEdit.setText(		charEntry.getPinyin()		);
 		this.subtitleText.setText(		charEntry.getSubtitle()		);
 		int charId = charEntry.getCharacterId();
 		String charIdText;
@@ -51,8 +46,6 @@ public class CharReviewElementWrapper {
 		}
 		
 		this.charIdText.setText( charIdText );
-
-		//this.hintEdit.setText(			charEntry.getHint()			);
 	}
 	
 	public View getView() { return this.view; }

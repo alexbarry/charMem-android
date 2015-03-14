@@ -3,7 +3,6 @@
 	<name>Char.Mem-android</name>
 	<comment></comment>
 	<projects>
-		<project>CharMem</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
