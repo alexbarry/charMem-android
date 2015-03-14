@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Char. Mem</string>
+    <string name="action_settings">Settings</string>
+    <string name="charGuessMsg">Guess the character!</string>
+    <string name="charInputHint">Character Name</string>
+    <string name="charInputBtnEnter">Enter</string>
+    <string name="defaultChars">聿五</string>
+    <string name="charInfo_sample">Character info goes here. If it is really big I hope it scrolls! I might have to change the orientation of the &amp;quot;scroll view&amp;quot;</string>
+    <string name="section_selection_text">Select section(s) to practice:</string>
+    <string name="sel_btn_update">Update</string>
+    <string name="sel_selectAll">Select All</string>
+    <string name="sel_clearAll">Clear All</string>
+    <string name="sec_sectionSel">Section Select</string>
+    <string name="sec_guessName">Guess Name</string>
+    <string name="sec_guessChar">Draw Char</string>
+    <string name="sec_reviewChars">Review Chars</string>
+    <string name="charDraw_show">Show</string>
+    <string name="charDraw_correct">Correct</string>
+    <string name="charDraw_incorrect">Incorrect</string>
+    <string name="drawCharMsg">Draw the character (on paper)!</string>
+    <string name="charReviewStatus_sampleText">Sections: 0, Chars: 0</string>
+    <string name="sampleCharNum">1230</string>
+    <string name="sampleCharName">big char name</string>
+
+</resources>
