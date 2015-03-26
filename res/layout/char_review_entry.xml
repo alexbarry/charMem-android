@@ -3,10 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity$DummySectionFragment" >
 	    
 	<TextView
@@ -15,40 +11,18 @@
 	    android:layout_height="wrap_content"
 	    android:layout_centerVertical="true"
 	    android:fontFamily="serif"
+	    android:layout_alignParentRight="true"
 	    android:text="@string/defaultChars"
 	    android:textSize="18pt" />
-
-	<ScrollView
-	    android:id="@+id/subtitleScrollView"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBottom="@+id/textChar"
-	    android:layout_alignTop="@+id/textChar"
-	    android:layout_marginRight="8sp"
-	    android:layout_toLeftOf="@+id/textKeyword"
-	    android:layout_toRightOf="@+id/textChar"
-	    class="ScrollView"
-	    android:fadeScrollbars="false"
-	    android:scrollbarAlwaysDrawVerticalTrack="true"
-	    android:scrollbars="vertical" >
-	    
-	 <TextView
-	     android:id="@+id/textSubtitle"
-	     android:layout_width="match_parent"
-	     android:layout_height="wrap_content"
-	     android:layout_gravity="center"
-	     android:textSize="12sp" />
-
-	</ScrollView>
 
 	<TextView
 	    android:id="@+id/textCharacterId"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_alignBottom="@+id/textChar"
-	    android:layout_alignParentRight="true"
+	    android:layout_alignParentLeft="true"
 	    android:ems="4"
-	    android:gravity="right"
+	    android:gravity="left"
 	    android:text="@string/sampleCharNum"
 	    android:textAlignment="gravity"
 	    android:textSize="5pt" />
@@ -58,7 +32,24 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_centerInParent="true"
-	    android:layout_alignParentRight="true"
+	    android:layout_alignParentLeft="true"
 	    android:text="@string/sampleCharName"
 	    android:textSize="8pt" />
+
+	<TextView
+	    android:id="@+id/textSubtitle"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/textChar"
+	    android:layout_alignTop="@+id/textChar"
+	    android:layout_toRightOf="@+id/textKeyword"
+	    android:layout_toLeftOf="@+id/textChar"
+	    android:paddingLeft="3dp"
+	    android:paddingRight="3dp"
+	    android:scrollHorizontally="true"
+	    android:scrollbarAlwaysDrawVerticalTrack="false"
+	    android:scrollbars="horizontal"
+	    android:text="@string/charInfo_sample"
+	    android:textSize="12sp" />
+
 </RelativeLayout>

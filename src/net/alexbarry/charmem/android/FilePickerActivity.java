@@ -68,7 +68,6 @@ public class FilePickerActivity extends FragmentActivity {
         try {
 			fileInputStream = openFileInput( filePath );
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException();
 		}

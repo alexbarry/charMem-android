@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:context=".MainActivity$DummySectionFragment" >
+
+    <EditText
+        android:id="@+id/textChar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="serif"
+        android:text="@string/defaultChars"
+        android:textSize="32pt" />
+
+    <EditText
+        android:id="@+id/textKeyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textChar"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sampleCharName"
+        android:textSize="14pt" />
+
+    <EditText
+        android:id="@+id/textSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textKeyword"
+        android:hint="@string/hint_subtitle"
+        android:inputType="textMultiLine"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:scrollHorizontally="true"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbars="horizontal"
+        android:text="@string/charInfo_sample"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textCharacterId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:ems="4"
+        android:gravity="left"
+        android:text="@string/sampleCharNum"
+        android:textAlignment="gravity"
+        android:textSize="5pt" />
+
+    <EditText
+        android:id="@+id/editPronunciation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/textSubtitle"
+        android:layout_toRightOf="@+id/pronunciationLbl"
+        android:ems="10" />
+
+    <ToggleButton
+        android:id="@+id/isPrimitiveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editPronunciation"
+        android:text="@string/primitive_btn_text" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/hintLabel"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/hintLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/isPrimitiveBtn"
+        android:text="Hint" />
+
+    <TextView
+        android:id="@+id/pronunciationLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editPronunciation"
+        android:layout_alignBottom="@+id/editPronunciation"
+        android:layout_alignParentLeft="true"
+        android:text="@string/pronunciation_lbl_string" />
+
+</RelativeLayout>

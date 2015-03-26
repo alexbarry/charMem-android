@@ -32,12 +32,10 @@ public class CharEntryAdapter extends BaseExpandableListAdapter {
 	}
 	
 	public long getGroupId(int groupPosition) {
-		// TODO Auto-generated method stub
 		return groupPosition;
 	}
 	
 	public int getGroupCount() {
-		// TODO Auto-generated method stub
 		return this.charEntries.size();
 	}
 	
@@ -57,14 +55,12 @@ public class CharEntryAdapter extends BaseExpandableListAdapter {
 	}
 	
 	public int getChildrenCount(int groupPosition) {
-		// TODO Auto-generated method stub
 		return this.charEntries.get(groupPosition).size();
 	}
 	
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) {
 		CharEntry charEntry =  this.charEntries.get(groupPosition).get(childPosition);
-		//CharReviewEntryFragment charViewFrag = CharReviewEntryFragment.newInstance(charEntry);
 		CharReviewElementWrapper charReviewElement = new CharReviewElementWrapper(parent, charEntry);
 		return charReviewElement.getView();
 	}

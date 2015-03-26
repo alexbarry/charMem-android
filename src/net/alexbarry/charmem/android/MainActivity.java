@@ -39,8 +39,6 @@ import net.alexbarry.charmem.*;
 
 public class MainActivity extends FragmentActivity {
 
-	private static final int PICKFILE_RESULT_CODE = 0;
-
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
 	 * fragments for each of the sections. We use a
@@ -79,7 +77,6 @@ public class MainActivity extends FragmentActivity {
 		try {
 			inputStream = assetManager.open("chars.txt"); 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
@@ -135,7 +132,7 @@ public class MainActivity extends FragmentActivity {
 			case 0: fragment = new CharSectionSelectFragment(); break;
 			case 1: fragment = new GuessNameFragment(); break;
 			case 2: fragment = new CharDrawFragment(); break;
-			default: fragment = new CharReviewFragment(); break; // TODO
+			default: fragment = new CharReviewFragment(); break;
 			}
 			Bundle args = new Bundle();
 			args.putInt(SectionsPagerAdapter.ARG_SECTION_NUMBER, position + 1);
@@ -161,104 +158,6 @@ public class MainActivity extends FragmentActivity {
 			}
 			return null;
 		}
-	}
-
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-	public static class GuessNameFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-
-		public GuessNameFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.char_name_guess_fragment,
-					container, false);
-			//TextView dummyTextView = (TextView) rootView
-			//		.findViewById(R.id.charDisplay);
-			//dummyTextView.setText(Integer.toString(getArguments().getInt(
-			//		SectionsPagerAdapter.ARG_SECTION_NUMBER)));
-			return rootView;
-		}
-	}
-	
-	public static class CharSectionSelectFragment extends Fragment {
-
-		public CharSectionSelectFragment() {
-		}
-		
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.char_section_select_fragment,
-					container, false);
-			
-			LinearLayout selLayout = (LinearLayout) rootView.findViewById(R.id.sectionSelLayout);
-			
-			List<CharEntryGroup> charEntries = MainActivity.getCharEntries();
-			for( CharEntryGroup charEntryGroup : charEntries ) {
-				CheckBox selectionRow = new CheckBox( getActivity() );
-				String text = charEntryGroup.getName();
-				if( charEntryGroup.getDescription().length() > 0 ) {
-					text += ": " + charEntryGroup.getDescription();
-				}
-				
-				selectionRow.setText( text );
-				selLayout.addView( selectionRow );
-			}
-			
-			return rootView;
-		}
-	}
-	
-	public static class CharDrawFragment extends Fragment {
-
-		public CharDrawFragment() {
-		}
-		
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.char_draw_fragment,
-					container, false);
-			
-			return rootView;
-		}
-	}
-	
-	public static class CharReviewFragment extends Fragment {
-
-		private static final int PICKFILE_RESULT_CODE = 0;
-		private View rootView;
-
-		public CharReviewFragment() {
-		}
-		
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.char_review_fragment,
-					container, false);
-			
-			this.rootView = rootView;
-			
-			
-			ExpandableListView charReviewList = (ExpandableListView) rootView.findViewById(R.id.charReviewExpandableList);
-			
-			charReviewList.setAdapter( new CharEntryAdapter( MainActivity.getCharEntries() )  );
-			
-			
-				
-			return rootView;
-		}
-
 	}
 
 }

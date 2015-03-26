@@ -2,11 +2,13 @@ package net.alexbarry.charmem.android;
 
 import net.alexbarry.charmem.CharEntry;
 import net.alexbarry.charmem.R;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,7 +23,8 @@ public class CharReviewElementWrapper {
 				subtitleText,
 				charIdText;
 
-	public CharReviewElementWrapper(ViewGroup	parent, CharEntry charEntry) {
+	public CharReviewElementWrapper(ViewGroup	parent, final CharEntry charEntry) {
+		// TODO: in another function (that happens on click?) remove this view, inflate a new bigger one
 		Context context = parent.getContext();
 		LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
 		boolean attachToRoot = false;
@@ -46,6 +49,18 @@ public class CharReviewElementWrapper {
 		}
 		
 		this.charIdText.setText( charIdText );
+		
+		this.view.setClickable(true);
+		this.view.setOnClickListener( new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Dialog dialog = new Dialog( v.getContext() );
+				dialog.setTitle( charEntry.getKeyword() );
+				dialog.show();
+			}
+		});
 	}
 	
 	public View getView() { return this.view; }

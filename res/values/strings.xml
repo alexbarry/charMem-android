@@ -23,5 +23,8 @@
     <string name="charReviewStatus_sampleText">Sections: 0, Chars: 0</string>
     <string name="sampleCharNum">1230</string>
     <string name="sampleCharName">big char name</string>
+    <string name="hint_subtitle">Enter a subtitle if necessary (not usually necessary)</string>
+    <string name="primitive_btn_text">is a primitive?</string>
+    <string name="pronunciation_lbl_string">Pronunciation</string>
 
 </resources>
