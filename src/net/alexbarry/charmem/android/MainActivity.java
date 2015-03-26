@@ -95,7 +95,7 @@ public class MainActivity extends FragmentActivity {
 		
 		MainActivity.charEntries = charEntries;
 		
-		MainActivity.charGetter = new CharGetter(charEntries);
+		MainActivity.charGetter = new CharGetter(charEntries );
 
 
 		

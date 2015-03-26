@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import net.alexbarry.charmem.android.CharSectionSelectFragment;
+
 public class CharGetter {
 	
 	/** Value returned if no sections are enabled or defined */
@@ -30,7 +32,7 @@ public class CharGetter {
 		this.charSectionEnabled = new ArrayList<Boolean>();
 		
 		for(int i = 0; i<charEntrySections.size(); i++ ) {
-			this.charSectionEnabled.add(true);
+			this.charSectionEnabled.add( CharSectionSelectFragment.sectionEnabledDefaultVal );
 		}
 		
 		this.updateAndShuffleChars();

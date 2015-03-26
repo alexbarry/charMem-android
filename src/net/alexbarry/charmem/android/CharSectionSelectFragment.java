@@ -17,6 +17,9 @@ public class CharSectionSelectFragment extends Fragment {
 	public CharSectionSelectFragment() {
 	}
 	
+	/** Value of the section selection checkboxes initially. */
+	public static final boolean sectionEnabledDefaultVal = true;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -28,7 +31,8 @@ public class CharSectionSelectFragment extends Fragment {
 		List<CharEntryGroup> charEntries = MainActivity.getCharEntries();
 		for( CharEntryGroup charEntryGroup : charEntries ) {
 			CheckBox selectionRow = new CheckBox( getActivity() );
-			selectionRow.setEnabled(true);
+			selectionRow.setChecked( sectionEnabledDefaultVal );
+			
 			String text = charEntryGroup.getName();
 			if( charEntryGroup.getDescription().length() > 0 ) {
 				text += ": " + charEntryGroup.getDescription();

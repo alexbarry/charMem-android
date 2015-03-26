@@ -50,6 +50,23 @@ public class GuessNameFragment extends Fragment {
 		this.enterBtn.setOnClickListener( new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
+				String charInput = GuessNameFrag.charGuessInput.getText().toString().trim();
+				String charKeyword = MainActivity.getCharGetter().getCurrentChar().getKeyword();
+				String msg;
+				boolean isCorrect;
+				if( charInput.equals( charKeyword ) ) {
+					msg = getString( R.string.charGuessCorrect );
+					isCorrect = true;
+				} else {
+					String frmt = getString( R.string.charGuessIncorrect_frmt );
+					String charDisplay = GuessNameFrag.charDisplay.getText().toString();
+					msg = String.format( frmt, charDisplay, charKeyword );
+					isCorrect = false;
+				}
+				
+				GuessNameFrag.statusText.setText( msg );
+				
 				MainActivity.getCharGetter().nextChar();
 				GuessNameFrag.updateChar();
 			}

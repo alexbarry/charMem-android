@@ -26,5 +26,8 @@
     <string name="hint_subtitle">Enter a subtitle if necessary (not usually necessary)</string>
     <string name="primitive_btn_text">is a primitive?</string>
     <string name="pronunciation_lbl_string">Pronunciation</string>
-
+    <string name="charGuessCorrect">Correct!</string>
+    <string name="charGuessIncorrect_frmt" formatted="false">Incorrect! %s is &quot;%s&quot;.</string>
+   
+    
 </resources>
