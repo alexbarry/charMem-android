@@ -56,6 +56,8 @@ public class MainActivity extends FragmentActivity {
 
 	private static List<CharEntryGroup> charEntries;
 	
+	private static CharGetter charGetter;
+	
 	public static List<CharEntryGroup> getCharEntries() { return charEntries; }
 
 	@Override
@@ -92,6 +94,8 @@ public class MainActivity extends FragmentActivity {
 		}
 		
 		MainActivity.charEntries = charEntries;
+		
+		MainActivity.charGetter = new CharGetter(charEntries);
 
 
 		
@@ -158,6 +162,10 @@ public class MainActivity extends FragmentActivity {
 			}
 			return null;
 		}
+	}
+
+	public static CharGetter getCharGetter() {
+		return MainActivity.charGetter;
 	}
 
 }

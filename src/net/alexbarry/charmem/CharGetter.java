@@ -25,23 +25,28 @@ public class CharGetter {
 
 	public CharGetter( List<CharEntryGroup> charEntrySections ) {
 		this.charEntrySections = charEntrySections;
+		
+		this.chars = new ArrayList<CharEntry>();
 		this.charSectionEnabled = new ArrayList<Boolean>();
+		
 		for(int i = 0; i<charEntrySections.size(); i++ ) {
 			this.charSectionEnabled.add(true);
 		}
+		
+		this.updateAndShuffleChars();
 	}
 	
 	public void setSectionEnabledStatus( int sectionNum, boolean isEnabled ) {
 		this.charSectionEnabled.set(sectionNum, isEnabled);
 		
-		this.shuffleChars();
+		//this.shuffleChars();
 	}
 
 	/**
 	 * Shuffles characters, and updates them if the enabled sections have changed. 
 	 * Also resets current character.
 	 */
-	public void shuffleChars() {
+	public void updateAndShuffleChars() {
 		this.charIndex = 0;
 		
 		this.chars.clear();
@@ -69,7 +74,7 @@ public class CharGetter {
 	
 	public CharEntry nextChar() {
 		this.charIndex += 1;
-		if( this.charIndex > this.chars.size() ) { 
+		if( this.charIndex >= this.chars.size() ) { 
 			this.charIndex = 0;
 			this.laps  += 1;
 		}
