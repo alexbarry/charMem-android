@@ -41,6 +41,7 @@ public class CharSectionSelectFragment extends Fragment {
 		this.selLayout = (LinearLayout) rootView.findViewById(R.id.sectionSelLayout);
 		
 		List<CharEntryGroup> charEntries = MainActivity.getCharEntries();
+		this.checkBoxes.clear();
 		for( CharEntryGroup charEntryGroup : charEntries ) {
 			CheckBox selectionRow = new CheckBox( getActivity() );
 			this.checkBoxes.add( selectionRow );
