@@ -60,8 +60,11 @@ public class CharGetter {
 			}
 		}
 		
+		this.shuffleChars();
+	}
+	
+	private void shuffleChars() {
 		Collections.shuffle(this.chars);
-		
 	}
 
 	private boolean isSectionEnabled(int sectionNum) {
@@ -79,6 +82,7 @@ public class CharGetter {
 		if( this.charIndex >= this.chars.size() ) { 
 			this.charIndex = 0;
 			this.laps  += 1;
+			this.shuffleChars();
 		}
 		
 		return this.getCurrentChar();
