@@ -28,6 +28,7 @@
     <string name="pronunciation_lbl_string">Pronunciation</string>
     <string name="charGuessCorrect">Correct!</string>
     <string name="charGuessIncorrect_frmt" formatted="false">Incorrect! %s is &quot;%s&quot;.</string>
+    <string name="sampleKeyword">character keyword here</string>
    
     
 </resources>
