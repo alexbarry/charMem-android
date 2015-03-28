@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class CharDrawFragment extends Fragment {
+public class CharDrawFragment extends CharTabFragment {
 
 	private TextView statusMsg;
 	private TextView keywordDisplay;
@@ -66,13 +66,13 @@ public class CharDrawFragment extends Fragment {
 		
 		
 		
-		this.loadChar();
+		this.updateChar();
 	
 		return rootView;
 
 	}
 
-	private void loadChar() {
+	public void updateChar() {
 		this.charEntry = MainActivity.getCharGetter().getCurrentChar();
 		
 		this.keywordDisplay.setText( charEntry.getKeyword() );
@@ -99,6 +99,11 @@ public class CharDrawFragment extends Fragment {
 	private void nextChar(boolean wasCorrect ) {
 		// TODO: record whether or not it was correct
 		MainActivity.getCharGetter().nextChar();
-		this.loadChar();
+		this.updateChar();
+	}
+
+	@Override
+	public String getTitle() {
+		return "Draw Char";
 	}
 }

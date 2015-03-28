@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
-public class CharSectionSelectFragment extends Fragment {
+public class CharSectionSelectFragment extends CharTabFragment {
 
 	private LinearLayout selLayout;
 	private Button sel_btn_confirm;
@@ -101,5 +101,13 @@ public class CharSectionSelectFragment extends Fragment {
 		
 		charGetter.updateAndShuffleChars();
 		
+	}
+
+	@Override
+	public void updateChar() { }
+
+	@Override
+	public String getTitle() {
+		return "Section Select";
 	}
 }

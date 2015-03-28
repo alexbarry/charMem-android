@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
-public class CharReviewFragment extends Fragment {
+public class CharReviewFragment extends CharTabFragment {
 
 	public CharReviewFragment() {
 	}
@@ -29,5 +29,11 @@ public class CharReviewFragment extends Fragment {
 			
 		return rootView;
 	}
+
+	@Override
+	public void updateChar() { 	}
+
+	@Override
+	public String getTitle() { return "Review Chars"; }
 
 }

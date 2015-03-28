@@ -1,40 +1,25 @@
 package net.alexbarry.charmem.android;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import net.alexbarry.charmem.CharEntryGroup;
 import net.alexbarry.charmem.R;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
 import net.alexbarry.charmem.*;
 
 public class MainActivity extends FragmentActivity {
@@ -59,6 +44,25 @@ public class MainActivity extends FragmentActivity {
 	private static CharGetter charGetter;
 	
 	public static List<CharEntryGroup> getCharEntries() { return charEntries; }
+	
+	private Map<Integer, CharTabFragment> charTabs = new HashMap<Integer, CharTabFragment>();
+	
+	
+	
+	public MainActivity() {
+		for( int position=0; position<4; position++) {
+			CharTabFragment fragment;
+			switch(position) {
+			case 0: fragment = new CharSectionSelectFragment(); break;
+			case 1: fragment = new GuessNameFragment(); break;
+			case 2: fragment = new CharDrawFragment(); break;
+			case 3: fragment = new CharReviewFragment(); break;
+			default: throw new RuntimeException();
+			}
+			
+			this.charTabs.put(position, fragment);
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +72,9 @@ public class MainActivity extends FragmentActivity {
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
-				getSupportFragmentManager());
+			getSupportFragmentManager(),
+			this
+		);
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -97,8 +103,17 @@ public class MainActivity extends FragmentActivity {
 		
 		MainActivity.charGetter = new CharGetter(charEntries );
 
+		final MainActivity mainActivity = this;
 
-		
+		mViewPager.setOnPageChangeListener( new OnPageChangeListener() {
+			@Override
+			public void onPageSelected(int pageNum) {
+				CharTabFragment charTab = mainActivity.charTabs.get(pageNum);
+				if( charTab != null ) { charTab.updateChar(); }
+			}
+			@Override public void onPageScrollStateChanged(int arg0) { }
+			@Override public void onPageScrolled(int arg0, float arg1, int arg2) { }
+		});
 		
 		
 		
@@ -120,24 +135,19 @@ public class MainActivity extends FragmentActivity {
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 		
 		public static final String ARG_SECTION_NUMBER = "section_number";
+		private MainActivity mainActivity;
 
 
-		public SectionsPagerAdapter(FragmentManager fm) {
+		public SectionsPagerAdapter(FragmentManager fm, MainActivity mainActivity) {
 			super(fm);
+			this.mainActivity = mainActivity;
 		}
 
 		@Override
 		public Fragment getItem(int position) {
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
-			Fragment fragment;
-			switch(position) {
-			case 0: fragment = new CharSectionSelectFragment(); break;
-			case 1: fragment = new GuessNameFragment(); break;
-			case 2: fragment = new CharDrawFragment(); break;
-			default: fragment = new CharReviewFragment(); break;
-			}
+
+			Fragment fragment =  mainActivity.charTabs.get(position);
+			
 			Bundle args = new Bundle();
 			args.putInt(SectionsPagerAdapter.ARG_SECTION_NUMBER, position + 1);
 			fragment.setArguments(args);
@@ -149,18 +159,12 @@ public class MainActivity extends FragmentActivity {
 
 		@Override
 		public CharSequence getPageTitle(int position) {
-			Locale l = Locale.getDefault();
-			switch (position) {
-			case 0:
-				return getString(R.string.sec_sectionSel);//.toUpperCase(l);
-			case 1:
-				return getString(R.string.sec_guessName);//.toUpperCase(l);
-			case 2:
-				return getString(R.string.sec_guessChar);//.toUpperCase(l);
-			case 3:
-				return getString(R.string.sec_reviewChars);//.toUpperCase(l);
-			}
-			return null;
+			CharTabFragment charTab = this.mainActivity.charTabs.get(position);
+			
+			if( charTab == null ) { return null; }
+			
+			return charTab.getTitle();
+
 		}
 	}
 
