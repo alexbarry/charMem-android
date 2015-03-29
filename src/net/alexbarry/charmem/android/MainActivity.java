@@ -15,8 +15,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.Menu;
+import android.view.View;
 import net.alexbarry.charmem.*;
 
 public class MainActivity extends FragmentActivity {
@@ -48,18 +50,7 @@ public class MainActivity extends FragmentActivity {
 	
 	
 	public MainActivity() {
-		for( int position=0; position<4; position++) {
-			CharTabFragment fragment;
-			switch(position) {
-			case 0: fragment = new CharSectionSelectFragment(); break;
-			case 1: fragment = new GuessNameFragment(); break;
-			case 2: fragment = new CharDrawFragment(); break;
-			case 3: fragment = new CharReviewFragment(); break;
-			default: throw new RuntimeException();
-			}
-			
-			this.charTabs.put(position, fragment);
-		}
+
 	}
 
 	@Override
@@ -101,21 +92,37 @@ public class MainActivity extends FragmentActivity {
 		
 		MainActivity.charGetter = new CharGetter(charEntries );
 
+		for( int position=0; position<4; position++) {
+			CharTabFragment fragment;
+			switch(position) {
+			case 0: fragment = new CharSectionSelectFragment(); break;
+			case 1: fragment = new GuessNameFragment(); break;
+			case 2: fragment = new CharDrawFragment(); break;
+			case 3: fragment = new CharReviewFragment(); break;
+			default: throw new RuntimeException();
+			}
+			
+			this.charTabs.put(position, fragment);
+		}
+		
 		final MainActivity mainActivity = this;
 
 		mViewPager.setOnPageChangeListener( new OnPageChangeListener() {
 			@Override
 			public void onPageSelected(int pageNum) {
 				CharTabFragment charTab = mainActivity.charTabs.get(pageNum);
+				View charTab_getView = null;
+				if( charTab != null ) { charTab_getView = charTab.getView(); }
+				
+				// TODO FIXME: getView() is returning null for the char tabs, after changing the orientation. When I 
+				// last logged this, it looked like the fragments were created twice before they were actually 
+				// used. So perhaps I'm accessing the wrong CharTabFragments here?
+				Log.i("alexinfo", String.format("Selected page %d, charTab is: %s, charTab.getView() is: %s", pageNum, charTab, charTab_getView ) );
 				if( charTab != null && charTab.getView() != null ) { charTab.updateChar(); }
 			}
 			@Override public void onPageScrollStateChanged(int arg0) { }
 			@Override public void onPageScrolled(int arg0, float arg1, int arg2) { }
 		});
-		
-		
-		
-
 		
 	}
 
