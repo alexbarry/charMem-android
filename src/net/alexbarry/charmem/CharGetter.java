@@ -88,5 +88,6 @@ public class CharGetter {
 		return this.getCurrentChar();
 	}
 	
+	public int getLapsCount() { return this.laps; }
 
 }

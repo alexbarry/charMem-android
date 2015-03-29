@@ -3,7 +3,6 @@ package net.alexbarry.charmem.android;
 import net.alexbarry.charmem.CharEntry;
 import net.alexbarry.charmem.R;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +13,8 @@ import android.widget.TextView;
 
 public class CharDrawFragment extends CharTabFragment {
 
+	@SuppressWarnings("unused") // this fragment doesn't change the status message, at the moment.
+								// Not overly useful to say "correct" or "incorrect" based only on the previous button pressed.
 	private TextView statusMsg;
 	private TextView keywordDisplay;
 	private TextView charDisplay;

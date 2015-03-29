@@ -3,14 +3,11 @@ package net.alexbarry.charmem.android;
 import net.alexbarry.charmem.CharEntry;
 import net.alexbarry.charmem.R;
 import android.app.Dialog;
-import android.app.Fragment;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class CharReviewElementWrapper {
@@ -34,9 +31,7 @@ public class CharReviewElementWrapper {
 		this.charText 		= (TextView) this.view.findViewById(R.id.textChar);
 		this.subtitleText	= (TextView) this.view.findViewById(R.id.textSubtitle);
 		this.charIdText		= (TextView) this.view.findViewById(R.id.textCharacterId);
-		
-		String test = charEntry.getKeyword();
-		
+				
 		this.keywordText.setText(		charEntry.getKeyword()		);
 		this.charText.setText(			charEntry.getCharacter()	);
 		this.subtitleText.setText(		charEntry.getSubtitle()		);

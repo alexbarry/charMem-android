@@ -3,9 +3,6 @@ package net.alexbarry.charmem.android;
 import net.alexbarry.charmem.CharEntry;
 import net.alexbarry.charmem.R;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.method.KeyListener;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +25,7 @@ public class GuessNameFragment extends CharTabFragment {
 	private EditText charGuessInput;
 	
 	private Button enterBtn;
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -41,8 +38,7 @@ public class GuessNameFragment extends CharTabFragment {
 		
 		this.charGuessInput = (EditText) rootView.findViewById( R.id.charNameInput );
 		
-		this.enterBtn = (Button) rootView.findViewById( R.id.charInputBtn );
-		
+		this.enterBtn = (Button) rootView.findViewById( R.id.charInputBtn );		
 		
 		this.updateChar();
 

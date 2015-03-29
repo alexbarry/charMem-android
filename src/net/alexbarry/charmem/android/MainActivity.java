@@ -2,10 +2,7 @@ package net.alexbarry.charmem.android;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 import net.alexbarry.charmem.CharEntryGroup;
 import net.alexbarry.charmem.R;
@@ -18,7 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
+import android.util.SparseArray;
 import android.view.Menu;
 import net.alexbarry.charmem.*;
 
@@ -45,7 +42,8 @@ public class MainActivity extends FragmentActivity {
 	
 	public static List<CharEntryGroup> getCharEntries() { return charEntries; }
 	
-	private Map<Integer, CharTabFragment> charTabs = new HashMap<Integer, CharTabFragment>();
+	//private Map<Integer, CharTabFragment> charTabs = new HashMap<Integer, CharTabFragment>();
+	private SparseArray<CharTabFragment> charTabs = new SparseArray<CharTabFragment>();
 	
 	
 	
@@ -109,7 +107,7 @@ public class MainActivity extends FragmentActivity {
 			@Override
 			public void onPageSelected(int pageNum) {
 				CharTabFragment charTab = mainActivity.charTabs.get(pageNum);
-				if( charTab != null ) { charTab.updateChar(); }
+				if( charTab != null && charTab.getView() != null ) { charTab.updateChar(); }
 			}
 			@Override public void onPageScrollStateChanged(int arg0) { }
 			@Override public void onPageScrolled(int arg0, float arg1, int arg2) { }

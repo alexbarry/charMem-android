@@ -12,7 +12,7 @@ public class CharEntry implements Serializable {
 
 	public static final CharEntry UNDEFINED = new CharEntry("?", "no characters defined!" );
 
-	private static final String PRIMITIVE_ID = "p";
+	//private static final String PRIMITIVE_ID = "p";
 	
 	String character;
 	String keyword;

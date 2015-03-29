@@ -4,13 +4,9 @@ import java.util.List;
 
 import net.alexbarry.charmem.CharEntry;
 import net.alexbarry.charmem.CharEntryGroup;
-import android.database.DataSetObserver;
-import android.os.DropBoxManager.Entry;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 public class CharEntryAdapter extends BaseExpandableListAdapter {
